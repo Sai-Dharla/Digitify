@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digitify — Handwritten Digit Recognizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts: Caveat for elegant handwritten brand style, Inter for crisp UI, Special Elite / Courier Prime for realistic typewriter paper text -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Fullscreen Himalayan Background Layer & Soft Atmospheric Veil -->
+  <div class="himalaya-bg-layer" aria-hidden="true"></div>
+  <div class="atmosphere-overlay" aria-hidden="true"></div>
+
+  <main class="app-container">
+    
+    <!-- 3-ZONE MAIN WORKSPACE -->
+    <section class="main-grid" aria-label="Digit Recognition Interface">
+
+      <!-- ZONE 1: LEFT SIDE -->
+      <aside class="left-zone">
+        <h1 class="brand-title">Digitify</h1>
+        
+        <div class="quote-wrapper">
+          <span class="quote-mark open-quote" aria-hidden="true">“</span>
+          <p class="brand-quote">
+            Draw a digit, and let your Convolutional Neural Network (CNN) recognize it in real time.<br>
+            A simple demo. A powerful idea.
+          </p>
+          <span class="quote-mark close-quote" aria-hidden="true">”</span>
+        </div>
+
+        <button id="try-it-now-btn" class="btn-primary" type="button">
+          Try It Now <span class="arrow" aria-hidden="true">→</span>
+        </button>
+      </aside>
+
+      <!-- ZONE 2: CENTER DRAWING CARD -->
+      <section class="center-zone" id="drawing-section">
+        <div class="drawing-card">
+          <header class="card-header">
+            <h2 class="card-title">Draw a digit here</h2>
+            <span class="input-badge" aria-label="Input resolution: 28 by 28 pixels">28 &times; 28 input</span>
+          </header>
+
+          <div class="canvas-viewport" id="canvas-container">
+            <canvas id="digit-canvas" width="280" height="280" aria-label="Digit drawing surface"></canvas>
+            <!-- Toast notification for empty canvas or error state -->
+            <div id="draw-hint" class="draw-hint" role="status" aria-live="polite">Draw a digit first.</div>
+          </div>
+
+          <footer class="card-controls">
+            <button id="clear-btn" class="btn-action btn-clear" type="button">
+              <svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/>
+              </svg>
+              <span>Clear</span>
+            </button>
+            <button id="predict-btn" class="btn-action btn-predict" type="button">
+              <svg class="icon icon-predict" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span id="predict-btn-text">Predict</span>
+              <span id="predict-spinner" class="spinner hidden" aria-hidden="true"></span>
+            </button>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ZONE 3: RIGHT SIDE RESULT (Pinned Torn-Paper Notice) -->
+      <aside class="right-zone" aria-label="Prediction Result">
+        <div class="torn-paper-wrapper" id="torn-paper-wrapper">
+          
+          <!-- Physical Red Push Pin at the top center -->
+          <div class="push-pin" aria-hidden="true">
+            <div class="pin-head">
+              <div class="pin-highlight"></div>
+            </div>
+            <div class="pin-shadow"></div>
+          </div>
+
+          <!-- Realistic Torn Paper Surface -->
+          <article class="torn-paper" id="torn-paper">
+            
+            <!-- Result Content (Begins behind/within the paper, then animates forward) -->
+            <div class="paper-content empty" id="paper-content">
+              <div class="result-box" id="result-box">
+                <p class="result-label">Prediction</p>
+                <div class="divider-line" aria-hidden="true"></div>
+                <div class="digit-display" id="predicted-digit" aria-live="polite">-</div>
+                <div class="divider-line" aria-hidden="true"></div>
+                <p class="confidence-label">Confidence</p>
+                <div class="confidence-display" id="predicted-confidence">-%</div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+      </aside>
+
+    </section>
+
+    <!-- BOTTOM STATISTICS ROW (Exactly three minimal statistics) -->
+    <footer class="bottom-stats-row" aria-label="Model metrics">
+      <div class="stat-item">
+        <span class="stat-value">10</span>
+        <span class="stat-desc">Digits</span>
+      </div>
+
+      <div class="stat-divider" aria-hidden="true"></div>
+
+      <div class="stat-item">
+        <span class="stat-value" id="stat-accuracy">{{ display_accuracy }}</span>
+        <span class="stat-desc">Model Accuracy</span>
+      </div>
+
+      <div class="stat-divider" aria-hidden="true"></div>
+
+      <div class="stat-item">
+        <span class="stat-value">Real-time</span>
+        <span class="stat-desc">Prediction<br>from your drawing</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

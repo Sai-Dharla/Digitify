@@ -1,0 +1,737 @@
+/* ===================================================
+   DIGITIFY — MODERN PRODUCTION STYLESHEET
+   Clean Himalayan Theme, 3-Zone Workspace, Real Torn Paper Result
+=================================================== */
+
+:root {
+  --primary-navy: #15273b;
+  --primary-navy-hover: #0d1b2a;
+  --accent-gold: #c98e42;
+  --brand-ink: #111a24;
+  --quote-color: #2b3947;
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --canvas-border: #e2e8f0;
+  --paper-bg: #f8f6f0;
+  --paper-ink: #1e293b;
+  --pin-red: #d32f2f;
+  --pin-red-dark: #8b0000;
+  --stat-number: #1a2a3a;
+  --stat-label: #546575;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 12px 36px rgba(18, 30, 48, 0.16);
+  --shadow-lg: 0 20px 50px rgba(15, 25, 40, 0.22);
+  --torn-shadow: 0 15px 35px rgba(20, 24, 33, 0.28), 0 5px 15px rgba(0, 0, 0, 0.15);
+  --radius-card: 16px;
+  --radius-canvas: 10px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--brand-ink);
+  overflow-x: hidden;
+  position: relative;
+  background-color: #dbe4ee;
+}
+
+/* ===================================================
+   1. HIMALAYAN BACKGROUND LAYER
+=================================================== */
+.himalaya-bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/himalaya-background.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  z-index: -2;
+  filter: brightness(1.02) contrast(1.01);
+  transform: scale(1.01); /* prevent edge seams */
+}
+
+/* Atmospheric subtle veil to ensure crystal-clear text readability */
+.atmosphere-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgba(240, 246, 253, 0.35) 0%,
+    rgba(224, 235, 247, 0.15) 50%,
+    rgba(215, 228, 242, 0.4) 100%
+  );
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  z-index: -1;
+}
+
+/* ===================================================
+   2. MAIN APPLICATION CONTAINER
+=================================================== */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  z-index: 1;
+}
+
+/* ===================================================
+   3. 3-ZONE MAIN GRID
+=================================================== */
+.main-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr 340px;
+  gap: 2.5rem;
+  align-items: center;
+  margin: auto 0;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* ===================================================
+   4. ZONE 1: LEFT SIDE BRAND & QUOTE
+=================================================== */
+.left-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 1rem;
+}
+
+.brand-title {
+  font-family: 'Caveat', cursive;
+  font-size: 5.4rem;
+  font-weight: 700;
+  color: #111a24;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+  user-select: none;
+  position: relative;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.quote-wrapper {
+  position: relative;
+  margin-bottom: 2.2rem;
+  max-width: 320px;
+}
+
+.quote-mark {
+  font-size: 3.2rem;
+  line-height: 1;
+  color: #7b8f9e;
+  opacity: 0.55;
+  font-family: Georgia, serif;
+  user-select: none;
+  display: inline-block;
+}
+
+.open-quote {
+  position: absolute;
+  top: -1.2rem;
+  left: -1.4rem;
+}
+
+.close-quote {
+  position: absolute;
+  bottom: -1.8rem;
+  right: -0.8rem;
+}
+
+.brand-quote {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--quote-color);
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.7);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(18, 33, 50, 0.22);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-navy-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(18, 33, 50, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary .arrow {
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ===================================================
+   5. ZONE 2: CENTER DRAWING CARD
+=================================================== */
+.center-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawing-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.drawing-card.highlight-focus {
+  animation: pulseCard 1s ease;
+}
+
+@keyframes pulseCard {
+  0% { transform: scale(1); box-shadow: var(--shadow-lg); }
+  50% { transform: scale(1.02); box-shadow: 0 0 25px rgba(21, 39, 59, 0.35); }
+  100% { transform: scale(1); box-shadow: var(--shadow-lg); }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.input-badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.canvas-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+  border: 2px solid var(--canvas-border);
+  border-radius: var(--radius-canvas);
+  overflow: hidden;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+#digit-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+/* Toast message for empty canvas or feedback */
+.draw-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(17, 24, 39, 0.88);
+  color: #ffffff;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.draw-hint.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.card-controls {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 0.85rem;
+}
+
+.btn-action {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-clear {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-clear:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.btn-clear:active {
+  background: #cbd5e1;
+}
+
+.btn-predict {
+  background: var(--primary-navy);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(21, 39, 59, 0.2);
+}
+
+.btn-predict:hover:not(:disabled) {
+  background: var(--primary-navy-hover);
+  box-shadow: 0 6px 16px rgba(21, 39, 59, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-predict:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-predict:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===================================================
+   6. ZONE 3: RIGHT SIDE TORN-PAPER RESULT
+=================================================== */
+.right-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.torn-paper-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Real Physical Red Push Pin */
+.push-pin {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 38px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.pin-head {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 35% 30%, #ff5252 0%, #d32f2f 60%, #8b0000 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 2px 3px rgba(255, 255, 255, 0.5);
+  position: relative;
+  margin: 0 auto;
+}
+
+.pin-highlight {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+}
+
+.pin-shadow {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-40%);
+  width: 16px;
+  height: 6px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, transparent 70%);
+}
+
+/* Realistic Torn Sheet of Paper */
+.torn-paper {
+  position: relative;
+  width: 280px;
+  min-height: 380px;
+  background-color: var(--paper-bg);
+  /* Organic torn & ragged edges using multi-vertex polygon */
+  clip-path: polygon(
+    0% 3%, 3% 1%, 7% 3%, 12% 0.8%, 18% 2.5%, 24% 1%, 32% 3%, 40% 1.2%, 48% 2.8%, 56% 1%, 65% 2.6%, 74% 0.9%, 83% 2.8%, 91% 1.2%, 97% 3%, 100% 1.5%,
+    99% 12%, 97.5% 22%, 99.2% 33%, 98% 44%, 99.5% 56%, 98.2% 67%, 99% 78%, 97.8% 89%, 99% 98%,
+    94% 97%, 86% 99%, 78% 97.5%, 69% 99.2%, 60% 97.8%, 51% 99%, 42% 97.2%, 33% 99%, 24% 97.8%, 15% 99.2%, 7% 97.5%, 0% 99%,
+    1.8% 88%, 0.5% 77%, 2% 66%, 0.8% 54%, 2.2% 43%, 1% 31%, 2.4% 20%, 0.8% 10%
+  );
+  box-shadow: var(--torn-shadow);
+  transform: rotate(2.2deg);
+  padding: 3rem 1.75rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease;
+  overflow: hidden;
+}
+
+/* Paper Fiber & Vintage Texture Simulation via pseudo elements */
+.torn-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(139, 115, 85, 0.06) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0,0,0,0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 8px 8px, 8px 8px;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+/* ===================================================
+   7. PREDICTION RESULT CONTENT & BACK-TO-FRONT ANIMATION
+=================================================== */
+.paper-content {
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Before prediction: visually empty torn paper */
+.paper-content.empty .result-box {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.result-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: center center;
+  font-family: 'Special Elite', 'Courier Prime', monospace;
+  color: var(--paper-ink);
+}
+
+.result-label {
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.6rem;
+}
+
+.divider-line {
+  width: 75%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0.5rem auto;
+}
+
+.digit-display {
+  font-family: 'Caveat', cursive;
+  font-size: 7.5rem;
+  font-weight: 700;
+  line-height: 0.95;
+  color: #1a2f44;
+  margin: 0.3rem 0;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+.confidence-label {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+  margin-top: 0.4rem;
+}
+
+.confidence-display {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0.2rem;
+  letter-spacing: -0.02em;
+}
+
+/* The Critical Back-to-Front / Forming Animation Sequence */
+.paper-content.forming .result-box {
+  visibility: visible;
+  animation: formFromBehind 0.85s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.paper-content.forming .digit-display {
+  animation: digitPop 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.paper-content.forming .confidence-display {
+  animation: confFadeIn 0.85s ease forwards 0.2s;
+  opacity: 0;
+}
+
+@keyframes formFromBehind {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.65) rotate(-3deg);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 0.85;
+    transform: translateY(-4px) scale(1.04) rotate(1deg);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes digitPop {
+  0% {
+    transform: scale(0.6) translateY(20px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1) translateY(-3px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes confFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================================
+   8. BOTTOM STATISTICS ROW
+=================================================== */
+.bottom-stats-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  padding: 1.25rem 2rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 14px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--stat-number);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.stat-desc {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--stat-label);
+  margin-top: 0.25rem;
+  line-height: 1.35;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 42px;
+  background: rgba(100, 116, 139, 0.35);
+}
+
+/* ===================================================
+   9. RESPONSIVE DESIGN (Desktop -> Tablet -> Mobile)
+=================================================== */
+@media (max-width: 1080px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .left-zone {
+    grid-column: 1 / -1;
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .quote-wrapper {
+    max-width: 600px;
+  }
+
+  .brand-title {
+    font-size: 4.6rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .left-zone {
+    align-items: center;
+    text-align: center;
+  }
+
+  .brand-title {
+    font-size: 4rem;
+  }
+
+  .brand-quote {
+    font-size: 0.95rem;
+  }
+
+  .quote-mark {
+    display: none; /* Hide oversize quote marks on tight mobile view */
+  }
+
+  .drawing-card {
+    max-width: 340px;
+    padding: 1.2rem;
+  }
+
+  .torn-paper {
+    width: 260px;
+    min-height: 350px;
+  }
+
+  .bottom-stats-row {
+    flex-direction: row;
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-desc {
+    font-size: 0.8rem;
+  }
+
+  .stat-divider {
+    height: 32px;
+  }
+}
+

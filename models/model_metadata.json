@@ -1,0 +1,12 @@
+{
+    "test_accuracy": 0.9922999739646912,
+    "test_loss": 0.025320760905742645,
+    "display_accuracy": "99.23%",
+    "epochs": 10,
+    "input_shape": [
+        28,
+        28,
+        1
+    ],
+    "num_classes": 10
+}
